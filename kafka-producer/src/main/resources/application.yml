@@ -1,0 +1,15 @@
+spring.cloud:
+  function:
+    definition: continuous;scheduled
+  stream:
+    bindings:
+      continuous-out-0:
+        binder: kafka
+        destination: continuous-topic
+        group: ia
+      scheduled-out-0:
+        binder: kafka
+        destination: scheduled-topic
+        group: ia
+      kafka:
+        binder.brokers: localhost:9092

@@ -1,0 +1,37 @@
+spring.cloud:
+  function:
+    definition: continuous;scheduled;custom
+  stream:
+    bindings:
+      continuous-in-0:
+        binder: kafka
+        destination: continuous-topic
+        group: ia
+      scheduled-in-0:
+        binder: kafka
+        destination: scheduled-topic
+        group: ia
+      custom-in-0:
+        binder: kafka
+        destination: custom-topic
+        group: ia
+      kafka:
+        binder:
+          autoCreateTopics: false
+          brokers: localhost:9092
+        bindings:
+          continuous-in-0:
+            consumer:
+              resetOffsets: true
+              ackEachRecord: true
+              startOffset: earliest
+          scheduled-in-0:
+            consumer:
+              resetOffsets: true
+              ackEachRecord: true
+              startOffset: earliest
+          custom-in-0:
+            consumer:
+              resetOffsets: true
+              ackEachRecord: true
+              startOffset: earliest

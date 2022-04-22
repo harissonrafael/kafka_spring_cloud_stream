@@ -1,0 +1,9 @@
+spring.cloud:
+  stream:
+    bindings:
+      custom-out-0:
+        binder: kafka
+        destination: custom-topic
+        group: ia
+      kafka:
+        binder.brokers: localhost:9092
